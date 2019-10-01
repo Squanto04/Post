@@ -30,6 +30,7 @@ class PostController {
         guard let finalURL = urlComponents?.url else { return }
         let getterEndpoint = finalURL.appendingPathExtension("json")
         var request = URLRequest(url: getterEndpoint)
+        print(getterEndpoint)
         request.httpBody = nil
         request.httpMethod = "GET"
         let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in

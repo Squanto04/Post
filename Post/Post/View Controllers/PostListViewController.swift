@@ -108,12 +108,12 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
 } // End of Class
 
 
-extension PostListViewController {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row >= 14 {
-            postController.fetchPosts(reset: false) {
-                self.reloadTableView()
-            }
-        }
-    }
-}
+//extension PostListViewController {
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if indexPath.row >=  {
+//            postController.fetchPosts(reset: false) {
+//                self.reloadTableView()
+//            }
+//        }
+//    }
+//}
