@@ -15,9 +15,8 @@ class PostController {
     
     // Source Of Truth
     var posts: [Post] = []
-    
     func fetchPosts(reset: Bool = true, completion: @escaping () -> Void) {
-        let queryEndInterval = reset ? Date().timeIntervalSince1970 : posts.last?.timestamp ?? Date().timeIntervalSince1970
+        let queryEndInterval = reset ? Date().timeIntervalSince1970 : posts.last?.timeQuery ?? Date().timeIntervalSince1970
         guard let unwrappedURL = self.baseURL else { return }
         let urlParameters = [
             "orderBy": "\"timestamp\"",
@@ -30,7 +29,6 @@ class PostController {
         guard let finalURL = urlComponents?.url else { return }
         let getterEndpoint = finalURL.appendingPathExtension("json")
         var request = URLRequest(url: getterEndpoint)
-        print(getterEndpoint)
         request.httpBody = nil
         request.httpMethod = "GET"
         let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
